@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  BooksFinder
+
+  Created by ParkChunsoo on 2021/07/25.
+  
+*/
+
+"common_ok" = "OK";
+"common_cancel" = "Cancel";
+"common_yes" = "YES";
+"common_no" = "NO";
+"common_prev" = "Prev";
+"common_next" = "Next";
+"common_back" = "Back";
+"common_close" = "Close";
+"common_save" = "Save";
+"common_edit" = "Edit";
+"common_select" = "Select";
+"common_rgstr" = "Regist";
+"common_delete" = "Delete";
+"common_msg_network" = "The network condition is not good. Checking the internet status.";

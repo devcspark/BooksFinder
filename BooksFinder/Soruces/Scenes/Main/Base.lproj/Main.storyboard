@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a02-By-HW3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BooksFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coding Test Demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDH-hF-qdp">
+                                <rect key="frame" x="88" y="431.5" width="238.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6Z-lx-Yjg">
+                                <rect key="frame" x="137" y="599" width="140" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Run Book finder"/>
+                                <connections>
+                                    <segue destination="cIu-Ee-2Yr" kind="show" id="dZu-Iw-ShC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxD-eg-6EH">
+                                <rect key="frame" x="175.5" y="515" width="63" height="34"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="데모설명">
+                                    <color key="titleColor" systemColor="tintColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ovk-Vu-d8F" kind="show" id="mgW-n1-YS7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DDH-hF-qdp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HwD-hh-bGL"/>
+                            <constraint firstItem="DDH-hF-qdp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jb5-gm-UGr"/>
+                            <constraint firstItem="uxD-eg-6EH" firstAttribute="top" secondItem="DDH-hF-qdp" secondAttribute="bottom" constant="50" id="Vr2-JW-SWL"/>
+                            <constraint firstItem="uxD-eg-6EH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YTN-T1-pdF"/>
+                            <constraint firstItem="e6Z-lx-Yjg" firstAttribute="top" secondItem="uxD-eg-6EH" secondAttribute="bottom" constant="50" id="s3f-Ck-HwU"/>
+                            <constraint firstItem="e6Z-lx-Yjg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="spv-eW-R2T"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="67C-Y8-547"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-361" y="81"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6nN-Y9-OjX">
+            <objects>
+                <viewController id="Ovk-Vu-d8F" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yr5-eZ-sEr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="prJ-Xt-khF">
+                                <rect key="frame" x="16" y="88" width="382" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">안녕하세요.
+
+본 데모는 코딩테스트에서 주로 확인하는 코드에 대한부분을 담고 있습니다.
+본 데모의 모든 코드는 박춘수(devcspark@gmail.com)가 직접 작성하였습니다.
+
+코드의 작성에 아래의 스펙을 적용하였습니다.
+1. RxSwift 프레임워크를 사용하였습니다.
+2. MVVM( Model-View-ViewModel )패턴에 의거 작성되었습니다.
+3. 그외 사용한 라이브러리는 다음과 같습니다.
+  a. Alamofile(네트워크)
+  b. ObjectMapper(json serialize)
+  c. Kingfisher(이미지캐싱)
+
+주) 원래 모 업체의 코딩테스트용 과제입니다만, 참고로 보아주시면 감사하겠습니다.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="83b-eZ-Liy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="prJ-Xt-khF" firstAttribute="leading" secondItem="83b-eZ-Liy" secondAttribute="leading" constant="16" id="49K-w1-KVe"/>
+                            <constraint firstItem="prJ-Xt-khF" firstAttribute="top" secondItem="83b-eZ-Liy" secondAttribute="top" id="97T-w0-dEf"/>
+                            <constraint firstItem="83b-eZ-Liy" firstAttribute="bottom" secondItem="prJ-Xt-khF" secondAttribute="bottom" id="JLU-WT-UiC"/>
+                            <constraint firstItem="83b-eZ-Liy" firstAttribute="trailing" secondItem="prJ-Xt-khF" secondAttribute="trailing" constant="16" id="wLn-Ly-898"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cmd-f1-ieF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dht-n7-aQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="841" y="80"/>
+        </scene>
+        <!--BookFinder-->
+        <scene sceneID="0VM-M6-RIY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BookFinder" id="cIu-Ee-2Yr" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2vl-8p-gNc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVm-4q-SDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="162"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="psh-qH-bky">
+            <objects>
+                <navigationController id="a02-By-HW3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTh-Tf-aeU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2sW-U9-Juj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QN-AT-2Zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1100" y="80"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

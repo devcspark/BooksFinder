@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  BooksFinder
+
+  Created by ParkChunsoo on 2021/07/25.
+  
+*/
+
+"common_ok" = "확인";
+"common_cancel" = "취소";
+"common_yes" = "예";
+"common_no" = "아니오";
+"common_prev" = "이전";
+"common_next" = "다음";
+"common_back" = "뒤로";
+"common_close" = "닫기";
+"common_save" = "저장";
+"common_edit" = "수정";
+"common_select" = "선택";
+"common_rgstr" = "등록";
+"common_delete" = "삭제";
+"common_msg_network" = "네트워크 상태가 좋지 않습니다. 인터넷 상태를 확인해주세요.";
