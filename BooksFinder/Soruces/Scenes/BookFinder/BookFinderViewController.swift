@@ -131,8 +131,8 @@ class BookFinderViewController: UIViewController {
         if refrashCtrl.isRefreshing {
             refrashCtrl.endRefreshing()
         }
-        totalCount.text = String(format: "Total Count ( %d/%d )",
-                                 booksTableView.numberOfRows(inSection: 0),
-                                 bookInfoVM.totalBooksCount)
+        
+        totalCount.text = String(format: "item Count( %d )",
+                                 bookInfoVM.nowBooksCount )
     }
 }

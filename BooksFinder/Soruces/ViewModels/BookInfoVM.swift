@@ -10,12 +10,20 @@ import RxSwift
 
 class BookInfoVM {
     private var disposeBag = DisposeBag()
-    private var dataModel = BookInfoModel()
+    //private var dataModel = BookInfoModel()
     private var bookItems = [BookItem]()
-    
-    var totalBooksCount = 0
+    private var maxPage = 1
+    private let resultCount = 20
+
+    // property output
     var bookitemsSubject = PublishSubject<[BookItem]>()
-    
+    var nowBooksCount:Int {
+        get {
+            return bookItems.count
+        }
+    }
+
+    // property input
     var query = ""
     var page = 0 {
         didSet {
@@ -23,37 +31,44 @@ class BookInfoVM {
         }
     }
     
-    private let resultCount = 20
-    private var totalPage = 1
-    
     func update() {
         if query.count < 4 { return }
-        if totalPage < page + 1 { return }
-        
-        dataModel.getList(query: query, page: page, resultCount: resultCount)
-            .subscribe(with: self, onNext: { owner, info in
-                if owner.page == 0 { owner.bookItems = [] }
-                if let items = info.items {
-                    owner.bookItems.append(contentsOf: items)
-                }
-                owner.totalBooksCount = info.totalItems ?? 0
-                owner.totalPage = ((info.totalItems ?? 1) / owner.resultCount) + 1
-                owner.bookitemsSubject.onNext(owner.bookItems)
+        if maxPage < page { return }
                 
-            }, onError: { owner, error in
-                owner.bookitemsSubject.onError(error)
+        NetworkService.perform(BookInfoModel.getList(query, page, resultCount))
+            .subscribe(with: self, onSuccess: { (owner, result:NetworkResult<BookInfo>) in
+                switch result {
+                case .success(let info):
+                    if owner.page == 0 { owner.bookItems = [] }
+                    if let items = info.items,
+                       items.count > 0 {
+                        owner.bookItems.append(contentsOf: items)
+                        owner.maxPage = info.items?.count == owner.resultCount ? owner.page + 1 : owner.page
+                    }else{
+                        owner.maxPage = owner.page
+                    }
+                    
+                    owner.bookitemsSubject.onNext(owner.bookItems)
+                    break
+                case .error(let err):
+                    owner.bookitemsSubject.onError(err)
+                    break
+                }
             })
             .disposed(by: disposeBag)
     }
     
     func nextPage() {
-        if totalPage > page {
+        if maxPage > page {
             page += 1
         }
     }
 }
 
 extension BookInfoVM {
+    /// complete output.
+    /// 필요 시 구조체로 정의해도 됨.
+    
     // 저자
     func authors(index:Int) -> String? {
         if let authors = bookItems[index].volumeInfo?.authors {

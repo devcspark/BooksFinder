@@ -218,62 +218,28 @@ class BookItem: Mappable {
     }
 }
 
-
-class BookInfoModel {
-    private var disposeBag = DisposeBag()
-    private enum BookInfoService: NetworkUtil {
-        case getList(String, Int, Int)      // 검색쿼리, 페이지(0 base), 맥스
-        
-        var path: String {
-            switch self {
-            case .getList:
-                return "/books/v1/volumes"
-            }
-        }
-        
-        var method: HTTPMethod {
-            return .get
-        }
-        
-        var parameters: Parameters {
-            var param = Parameters()
-            switch self {
-            case .getList(let query, let page, let pageCount):
-                param["q"] = query
-                param["startIndex"] = page * pageCount
-                param["maxResults"] = pageCount
-            }
-            return param
+enum BookInfoModel: NetworkUtil {
+    case getList(String, Int, Int)      // 검색쿼리, 페이지(0 base), 맥스
+    
+    var path: String {
+        switch self {
+        case .getList:
+            return "/books/v1/volumes"
         }
     }
     
-    func getList(query:String, page:Int, resultCount:Int) -> Observable<BookInfo> {
-        return Observable.create { observe in
-            NetworkService().perform(BookInfoService.getList(query, page, resultCount))
-                .subscribe { (result:NetworkResult<BookInfo>) in
-                    switch result {
-                    case .success(let obj):
-                        observe.onNext(obj)
-                    case .error(let err):
-                        observe.onError(err)
-                    }
-                }.disposed(by: self.disposeBag)
-            
-            return Disposables.create()
+    var method: HTTPMethod {
+        return .get
+    }
+    
+    var parameters: Parameters {
+        var param = Parameters()
+        switch self {
+        case .getList(let query, let page, let pageCount):
+            param["q"] = query
+            param["startIndex"] = page * pageCount
+            param["maxResults"] = pageCount
         }
-        /*
-        return Single.create(subscribe: { single in
-            NetworkService().perform(BookInfoService.getList(query, page, resultCount)) { (result: NetworkResult<BookInfo>) in
-                switch result {
-                case .success(let t):
-                    single(.success(t))
-                case .error(let networkError):
-                    single(.failure(networkError))
-                }
-            }
-
-            return Disposables.create()
-        })
-         */
+        return param
     }
 }

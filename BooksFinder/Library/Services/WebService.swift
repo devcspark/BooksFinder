@@ -49,8 +49,8 @@ extension NetworkUtil {
 }
 
 class NetworkService {
-    func perform<T>(_ apiRoute: NetworkUtil) -> Single<NetworkResult<T>> {
-        print("net work!!!!!! call API")
+    static func perform<T>(_ apiRoute: NetworkUtil) -> Single<NetworkResult<T>> {
+        
         let manager = Alamofire.Session.default
         manager.session.configuration.timeoutIntervalForRequest = 10
         manager.session.configuration.timeoutIntervalForResource = 10
@@ -66,19 +66,15 @@ class NetworkService {
                         if let jsonData = String(data: data, encoding: .utf8),
                            let obj = T(JSONString: jsonData) {
                             single(.success(.success(obj)))
-                            //completion(.success(obj))
                         }else{
                             single(.success(.error(.objectError)))
-                            //completion(.error(.objectError))
                         }
                     case .failure(let error):
                         print(error)
                         if let err = NetworkError(rawValue: response.response?.statusCode ?? 0) {
                             single(.success(.error(err)))
-                            //completion(.error(err))
                         }else{
                             single(.success(.error(.unknown)))
-                            //completion(.error(.unknown))
                         }
                     }
                 })
@@ -86,37 +82,4 @@ class NetworkService {
             return Disposables.create()
         }
     }
-    
-    /*
-    func perform<T: Mappable>(_ apiRoute: NetworkUtil, completion: @escaping (NetworkResult<T>) -> Void) {
-        print("net work!!!!!! call API")
-        let manager = Alamofire.Session.default
-        manager.session.configuration.timeoutIntervalForRequest = 10
-        manager.session.configuration.timeoutIntervalForResource = 10
-
-        let dataRequest = AF.request(apiRoute)
-        dataRequest
-            .validate(contentType: ["application/json", "application/x-www-form-urlencoded", "text/json", "text/plain", "text/html"])
-            .responseData(completionHandler: { response in
-                print("response : \(response)")
-                switch response.result {
-                case .success(let data):
-                    if let jsonData = String(data: data, encoding: .utf8),
-                       let obj = T(JSONString: jsonData) {
-                        completion(.success(obj))
-                    }else{
-                        completion(.error(.objectError))
-                    }
-                case .failure(let error):
-                    print(error)
-                    if let err = NetworkError(rawValue: response.response?.statusCode ?? 0) {
-                        completion(.error(err))
-                    }else{
-                        completion(.error(.unknown))
-                    }
-                    break
-                }
-            })
-    }
-     */
 }
