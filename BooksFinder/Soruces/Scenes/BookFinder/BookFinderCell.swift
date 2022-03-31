@@ -23,6 +23,8 @@ class BookFinderCell: UITableViewCell {
     
     override func prepareForReuse() {
         thumbnail.image = nil
+        thumbnail.layer.borderWidth = 1
+        thumbnail.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func setData(thumbnail:URL?,

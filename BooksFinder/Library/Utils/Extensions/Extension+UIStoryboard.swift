@@ -28,5 +28,6 @@ extension UIStoryboard {
 }
 
 extension UIStoryboard.Name {
-    public static var main = UIStoryboard.Name("Main")
+    public static var Main = UIStoryboard.Name("Main")
+    public static var BookFinder = UIStoryboard.Name("BookFinder")
 }

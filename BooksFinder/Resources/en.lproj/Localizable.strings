@@ -20,3 +20,9 @@
 "common_rgstr" = "Regist";
 "common_delete" = "Delete";
 "common_msg_network" = "The network condition is not good. Checking the internet status.";
+
+"title" = "Title: ";
+"authors" = "Authors :";
+"description" = "Description :";
+"preview" = "Preview Link";
+"info" = "Info Link";

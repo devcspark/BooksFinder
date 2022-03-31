@@ -20,3 +20,9 @@
 "common_rgstr" = "등록";
 "common_delete" = "삭제";
 "common_msg_network" = "네트워크 상태가 좋지 않습니다. 인터넷 상태를 확인해주세요.";
+
+"title" = "제목: ";
+"authors" = "저자 :";
+"description" = "내용 :";
+"preview" = "미리보기";
+"info" = "상세정보";
